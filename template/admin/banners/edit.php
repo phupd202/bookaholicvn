@@ -1,6 +1,6 @@
 <?php
 
-        require_once(BASE_PATH . '/template/admin/layouts/head-tag.php');
+require_once(BASE_PATH . '/template/admin/layouts/head-tag.php');
 
 
 ?>
@@ -13,13 +13,13 @@
 <section class="row my-3">
     <section class="col-12">
 
-        <form method="post" action="<?= url('admin/banner/update/'. $banner['id']) ?>" enctype="multipart/form-data">
-            <div class="form-group">
+        <form method="post" action="<?= url('admin/banner/update/' . $banner['id']) ?>" enctype="multipart/form-data">
+            <!-- <div class="form-group">
                 <label for="url">Url</label>
                 <input type="text" class="form-control" id="url" name="url" value="<?= $banner['url'] ?>" required autofocus>
-            </div>
+            </div> -->
 
-           
+
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" class="form-control-file" autofocus>

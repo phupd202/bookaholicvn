@@ -1,6 +1,6 @@
 <?php
 
-        require_once(BASE_PATH . '/template/admin/layouts/head-tag.php');
+require_once(BASE_PATH . '/template/admin/layouts/head-tag.php');
 
 
 ?>
@@ -14,18 +14,18 @@
     <section class="col-12">
 
         <form method="post" action="<?= url('admin/banner/store') ?>" enctype="multipart/form-data">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="url">Url</label>
                 <input type="text" class="form-control" id="url" name="url" placeholder="Enter url ..." required autofocus>
-            </div>
+            </div> -->
 
-           
+
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" class="form-control-file" required autofocus>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-sm">store</button>
+            <button type="submit" class="btn btn-primary btn-sm">create</button>
         </form>
     </section>
 </section>

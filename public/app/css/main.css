@@ -68,9 +68,11 @@ $black			: #222;
     font-style: normal;
     font-weight: bold;
     src: url('../fonts/vazir/Vazir.eot');
-    src: url('../fonts/vazir/Vazir.eot') format('embedded-opentype'), /* IE6-8 */
-    url('../fonts/vazir/Vazir.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('../fonts/vazir/Vazir.woff2') format('truetype');
+    src: url('../fonts/vazir/Vazir.eot') format('embedded-opentype'),
+        /* IE6-8 */
+        url('../fonts/vazir/Vazir.woff') format('woff'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url('../fonts/vazir/Vazir.woff2') format('truetype');
 }
 
 @font-face {
@@ -125,8 +127,8 @@ $black			: #222;
 }
 
 *:not(span,
-i) {
-    font-family: Vazir!important;
+    i) {
+    font-family: Vazir !important;
 }
 
 body {
@@ -1198,6 +1200,7 @@ header {
     #mobile-nav-toggle {
         display: inline;
     }
+
     #nav-menu-container {
         display: none;
     }
@@ -2807,6 +2810,7 @@ body {
         left: 0;
         top: 20px;
     }
+
     .testimonial-area .owl-controls .owl-prev,
     .testimonial-area .owl-controls .owl-next {
         display: inline-block;
@@ -3377,6 +3381,7 @@ div.thumbnail_container .overlay-bg {
     .contact-page-area .address-wrap .single-contact-address h5 {
         font-size: 14px;
     }
+
     .contact-page-area .address-wrap .single-contact-address p {
         font-size: 10px;
     }

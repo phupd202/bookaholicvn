@@ -7,14 +7,14 @@ use DataBase\DataBase;
 
 class Dashboard extends Admin
 {
-    
+
     public function index()
     {
         $db = new DataBase();
         $postCount = $db->select('SELECT COUNT(*) FROM `posts`  ;')->fetch();
         $postsViews = $db->select('SELECT SUM(view) FROM `posts`  ;')->fetch();
         $commentsCount = $db->select('SELECT COUNT(*) FROM `comments`  ;')->fetch();
-        $commentsUnseenCount = $db->select("SELECT COUNT(*) FROM `comments` WHERE `status` = 'unseen' ;")->fetch();
+        $commentsUnseenCount = $db->select("SELECT COUNT(*) FROM `comments` WHERE `status` = 'seen' ;")->fetch();
         $commentsApprovedCount = $db->select("SELECT COUNT(*) FROM `comments` WHERE `status` = 'approved' ;")->fetch();
         $userCount = $db->select("SELECT COUNT(*) FROM `users` WHERE `permission` = 'user';")->fetch();
         $adminCount = $db->select("SELECT COUNT(*) FROM `users` WHERE `permission` = 'admin' ;")->fetch();
@@ -28,6 +28,6 @@ class Dashboard extends Admin
         $lastComments = $db->select('SELECT comments.id, comments.comment, comments.status, comments.post_id, users.username FROM comments, users WHERE comments.user_id = users.id order by comments.created_at DESC LIMIT 0,5 ;');
 
 
-        require_once (BASE_PATH . "/template/admin/dashboard/index.php");
+        require_once(BASE_PATH . "/template/admin/dashboard/index.php");
     }
 }
