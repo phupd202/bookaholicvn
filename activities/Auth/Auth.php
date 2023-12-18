@@ -147,7 +147,6 @@ class Auth
             flash('activation_error', 'Không tìm thấy thông tin tài khoản để kích hoạt.');
             $this->redirect('login');
         }
-
         // Tiếp tục chỉ khi người dùng được tìm thấy
         $result = $db->update('users', $user['id'], ['is_active'], [1]);
 
