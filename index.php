@@ -35,6 +35,7 @@ $GLOBALS['smtpConfig'] = [
     'senderName' => SENDER_NAME,
 ];
 
+
 //database
 require_once 'database/DataBase.php';
 require_once 'database/createDB.php';

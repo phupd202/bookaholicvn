@@ -76,8 +76,7 @@ class Auth
             return false;
         }
     }
-    
-    // Đăng ký
+
     public function register() {
         require_once BASE_PATH . '/template/auth/register.php';
     }
