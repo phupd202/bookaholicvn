@@ -77,8 +77,7 @@ class Auth
         }
     }
 
-    public function register()
-    {
+    public function register() {
         require_once BASE_PATH . '/template/auth/register.php';
     }
 

@@ -9,19 +9,19 @@ session_start();
 define('BASE_PATH', __DIR__);
 define('CURRENT_DOMAIN', current_domain() . '/bookaholicvn/');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'news-project');
+define('DB_NAME', 'bookaholicvn');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DISPLAY_ERROR', true);
 
 //mail config
-define('MAIL_HOST', 'sandbox.smtp.mailtrap.io');
-define('SMTP_AUTH', 'LOGIN');
-define('MAIL_USERNAME', 'yourMailUsername');
-define('MAIL_PASSWORD', 'yourMailPassword');
+define('MAIL_HOST', 'smtp.gmail.com');
+define('SMTP_AUTH', true);
+define('MAIL_USERNAME', 'aholicvnbook@gmail.com');
+define('MAIL_PASSWORD', 'cnvd emld ffed tptn');
 define('MAIL_PORT', 587);
-define('SENDER_MAIL', 'onlinenewssite@admin.com');
-define('SENDER_NAME', 'admin');
+define('SENDER_MAIL', 'aholicvnbook@gmail.com');
+define('SENDER_NAME', '[Hệ thống giới thiệu sách BookaholicVn]');
 
 //database
 require_once 'database/DataBase.php';
