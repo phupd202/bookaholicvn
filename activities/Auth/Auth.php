@@ -254,7 +254,7 @@ class Auth
                 $forgotMessage = $this->forgotMessage($user['username'], $randomToken);
                 $result = $this->sendMail($request['email'], 'Khôi phục mật khẩu', $forgotMessage);
                 if ($result) {
-                    $db->update('users', $user['id'], ['forgot_token', 'forgot_token_expire'], [$randomToken, date("Y-m-d H:i:s", strtotime('+10 minutes'))]);
+                    $db->update('users', $user['id'], ['forgot_token', 'forgot_token_expire'], [$randomToken, date("Y-m-d H:i:s", strtotime('+15 minutes'))]);
                     $this->redirect('login');
                 } else {
                     flash('forgot_error', 'Không thể gửi email');

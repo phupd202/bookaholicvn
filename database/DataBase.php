@@ -16,7 +16,8 @@ class DataBase
     private $dbUsername = DB_USERNAME;
     private $dbPassword = DB_PASSWORD;
 
-    public function __construct() {
+    public function __construct()
+    {
 
         try {
             $this->connection = new PDO('mysql:host=' . $this->dbHost . ";dbname=" . $this->dbName, $this->dbUsername, $this->dbPassword, $this->options);
@@ -30,8 +31,10 @@ class DataBase
 
     // select('select * from user');
     // select('select * from user WHERE id = ?', [2]);
-    public function select($sql, $values = null) {
+    public function select($sql, $values = null)
+    {
         try {
+
             $statement = $this->connection->prepare($sql);
             if ($values == null) {
                 $statement->execute();
@@ -49,55 +52,18 @@ class DataBase
     }
 
     // insert('users', ['email', 'age'], ['ali@yahoo.com', 20]);
-    // public function insert($tableName, $fields, $values)
-    // {
-    //     try {
-    //         $statement = $this->connection->prepare('INSERT INTO ' . $tableName . '(' . implode(', ', $fields) . ', created_at) VALUES ( :' . implode(', :', $fields) . ', now() );');
-    //         $statement->execute(array_combine($fields, $values));
-    //         return true;
-    //     } catch (Exception $e) {
-    //         echo 'error ' . $e->getMessage();
-    //         return false;
-    //     }
-
-    // }
-
     public function insert($tableName, $fields, $values)
-{
-    try {
-        // Chắc chắn rằng số trường và giá trị khớp nhau
-        if (count($fields) !== count($values)) {
-            throw new Exception('Số lượng trường không khớp với số lượng giá trị.');
+    {
+        try {
+            $statement = $this->connection->prepare("INSERT INTO " . $tableName . "(" . implode(', ', $fields) . ", created_at) VALUES ( :" . implode(', :', $fields) . ", now() );");
+            $statement->execute(array_combine($fields, $values));
+            return true;
+        } catch (Exception $e) {
+            echo 'error ' . $e->getMessage();
+            return false;
         }
 
-        // Chuyển các trường thành chuỗi SQL an toàn
-        $fieldNames = implode(', ', array_map(function ($field) {
-            return "`$field`";
-        }, $fields));
-
-        // Tạo mảng placeholders cho giá trị
-        $placeholders = implode(', ', array_map(function ($value) {
-            return ":$value";
-        }, $fields));
-
-        // Chuyển giá trị thành mảng kết hợp
-        $parameterizedValues = array_combine($fields, $values);
-
-        // Thêm giá trị cho created_at
-        $fieldNames .= ', `created_at`';
-        $placeholders .= ', NOW()';
-
-        // Chuẩn bị truy vấn
-        $statement = $this->connection->prepare("INSERT INTO $tableName ($fieldNames) VALUES ($placeholders);");
-        $statement->execute($parameterizedValues);
-
-        return true;
-    } catch (Exception $e) {
-        echo 'Error: ' . $e->getMessage();
-        return false;
     }
-}
-
 
     // update('users', 2, ['email', 'age'], ['ali@yahoo.com', 20]);
     // 0 => 'ali@yahoo.com',
@@ -141,7 +107,8 @@ class DataBase
 
     }
 
-    public function createTable($query) {
+    public function createTable($query)
+    {
         try {
             $this->connection->exec($query);
             return true;
