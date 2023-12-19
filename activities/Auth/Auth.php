@@ -5,15 +5,12 @@ namespace Auth;
 use Database\DataBase;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
-require 'vendor/autoload.php';
-
+require_once 'vendor/autoload.php';
 class Auth
 {
 
-    protected function redirect($url)
-    {
+    protected function redirect($url) {
         header('Location: ' . trim(CURRENT_DOMAIN, '/ ') . '/' . trim($url, '/ '));
         exit;
     }
@@ -40,6 +37,7 @@ class Auth
                     <h1>[Bookaholic] Xác thực tài khoản</h1>
                     <h3>Xin chào $username, </h3>
                     <h3>Vui lòng nhấn vào link bên dưới để kích hoạt tài khoản!</h3>
+                    <h3>Lưu ý: Email chỉ có hiệu lực trong vòng 10 phút!</h3>
                     <h3><a href=" . url('activation/' . $verifyToken) . ">kích hoạt ngay!</a></h3>
                     ";
         return $message;
@@ -79,7 +77,6 @@ class Auth
         }
     }
     
-
     // Đăng ký
     public function register() {
         require_once BASE_PATH . '/template/auth/register.php';
@@ -92,17 +89,17 @@ class Auth
             $this->redirectBack();
         } 
         // Kiểm tra mật khẩu và mật khẩu xác thực
-        elseif ($request['password'] !== $request['confirm-password']) {
+        else if ($request['password'] !== $request['confirm-password']) {
             flash('register_error', 'Mật khẩu xác thực không trùng khớp');
             $this->redirectBack();
         } 
         // Kiểm tra độ dài mật khẩu
-        elseif (strlen($request['password']) < 8) {
+        else if (strlen($request['password']) < 8) {
             flash('register_error', 'Mật khẩu phải có độ dài tối thiểu 8 kí tự');
             $this->redirectBack();
         } 
         // Kiểm tra định dạng email
-        elseif (!filter_var($request['email'], FILTER_VALIDATE_EMAIL)) {
+        else if (!filter_var($request['email'], FILTER_VALIDATE_EMAIL)) {
             flash('register_error', 'Email nhập vào không đúng định dạng');
             $this->redirectBack();
         } 
@@ -117,7 +114,12 @@ class Auth
                 $this->redirectBack();
             } 
             else {
+                if (!is_array($request)) {
+                    flash('register_error', 'Dữ liệu đăng ký không hợp lệ');
+                    $this->redirectBack();
+                }
                 // Sinh token và gửi email xác thực
+
                 $randomToken = $this->random();
                 $activationMessage = $this->activationMessage($request['username'], $randomToken);
                 $result = $this->sendMail($request['email'], 'Xác thực tài khoản', $activationMessage);
@@ -126,14 +128,16 @@ class Auth
                     // Lưu thông tin người dùng và token vào cơ sở dữ liệu
                     $request['verify_token'] = $randomToken;
                     $request['password'] = $this->hash($request['password']);
-                    $db->insert('users', array_keys($request), $request);
-                    
+                    $db->insert('users', array_keys($request), array_values($request));
+                    var_dump($request);
                     $this->redirect('login');
                 } 
                 else {
                     flash('register_error', 'Không thể gửi email xác thực!');
                     $this->redirectBack();
                 }
+
+                
             }
         }
     }    
@@ -145,7 +149,7 @@ class Auth
 
         if ($user === null) {
             flash('activation_error', 'Không tìm thấy thông tin tài khoản để kích hoạt.');
-            $this->redirect('login');
+            // $this->redirect('login');
         }
         // Tiếp tục chỉ khi người dùng được tìm thấy
         $result = $db->update('users', $user['id'], ['is_active'], [1]);
@@ -160,8 +164,7 @@ class Auth
         }
     }
 
-    public function login()
-    {
+    public function login() {
         require_once BASE_PATH . '/template/auth/login.php';
     }
 
@@ -226,7 +229,7 @@ class Auth
     {
         $message = '
                 <h1>Khôi phục mật khẩu</h1>
-                <h3>Xin chào $username, </h3>
+                <h3>Xin chào, </h3>
                 <h3>Hệ thống của chúng tôi vừa nhận được yêu cầu khôi phục lại mật khẩu từ phía bạn, vui lòng nhấp vào link bên dưới để có thể khôi phục mật khẩu.</h3>
                 <div><a href="' . url('reset-password-form/' . $forgotToken) . '">Khôi phục mật khẩu</a></div>
                 ';

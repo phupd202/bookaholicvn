@@ -20,9 +20,8 @@ define('SMTP_AUTH', true);
 define('MAIL_USERNAME', 'aholicvnbook@gmail.com');
 define('MAIL_PASSWORD', 'cnvd emld ffed tptn');
 define('MAIL_PORT', 587);
-define('SENDER_MAIL', 'phamduyphu_t65@hus.edu.vn');
-define('SENDER_NAME', 'admin');
-
+define('SENDER_MAIL', 'aholicvnbook@gmail.com');
+define('SENDER_NAME', '[Hệ thống giới thiệu sách BookaholicVn]');
 
 // Gán giá trị vào biến toàn cục
 $GLOBALS['smtpConfig'] = [
@@ -72,8 +71,7 @@ function jalaliDate($date){
 }
 
 // uri('admin/category', 'Admin\Category', 'index');
-function uri($reservedUrl, $class, $method, $requestMethod = "GET")
-{
+function uri($reservedUrl, $class, $method, $requestMethod = "GET") {
     // current url array
     $currentUrl = explode('?', currentUrl())[0];
     $currentUrl = str_replace(CURRENT_DOMAIN, '', $currentUrl);
@@ -81,21 +79,14 @@ function uri($reservedUrl, $class, $method, $requestMethod = "GET")
     $currentUrlArray = explode('/', $currentUrl);
     $currentUrlArray = array_filter($currentUrlArray);
 
-
     // reserved url array
     $reservedUrl = trim($reservedUrl, '/');
     $reservedUrlArray = explode('/', $reservedUrl);
     $reservedUrlArray = array_filter($reservedUrlArray);
 
-    // admin/category/create
-    // admin/category/create
-
     if(sizeof($currentUrlArray) != sizeof($reservedUrlArray) || methodField() != $requestMethod){
             return false;
     }
-
-    // admin/category/edit/2
-    // admin/category/edit/{id}
     
     $parameters = [];
     for($key = 0; $key < sizeof($currentUrlArray); $key++)
@@ -105,8 +96,6 @@ function uri($reservedUrl, $class, $method, $requestMethod = "GET")
                     array_push($parameters, $currentUrlArray[$key]);
             }
             elseif($currentUrlArray[$key] !== $reservedUrlArray[$key]){
-                       // admin/category/delete/2
-                    // admin/category/edit/{id}
                     return false;
             }
     }
@@ -118,9 +107,6 @@ function uri($reservedUrl, $class, $method, $requestMethod = "GET")
 
     $object = new $class;
     call_user_func_array(array($object, $method), $parameters);
-    // Category
-    // $category = new Category;
-    // $category->index();
     exit;
 }
 
