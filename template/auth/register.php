@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
+    <title>Đăng ký</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -24,17 +24,15 @@
 </head>
 
 <body>
-
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-pic js-tilt" data-tilt>
-                    <img src="<?= asset('public/auth/images/img-01.png') ?>" alt="IMG">
-                </div>
-
                 <form method="post" action="<?= url('register/store') ?>" class="login100-form validate-form">
                     <span class="login100-form-title">
-                        Register
+                        Chào mừng đến với BookaholicVn!
+                    </span>
+                    <span class="login100-form-register">
+                        Đăng ký tài khoản
                     </span>
 
                     <?php 
@@ -45,17 +43,15 @@
                     <?php
                     } ?>
 
-
-
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                    <div class="wrap-input100 validate-input" data-validate="Tên đăng nhập là bắt buộc">
+                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input" data-validate="Email phải có định dạng: ex@abc.xyz">
                         <input class="input100" type="email" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -63,8 +59,16 @@
                         </span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="password" placeholder="Password">
+                    <div class="wrap-input100 validate-input" data-validate="Mật khẩu là bắt buộc">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Mật khẩu là bắt buộc">
+                        <input class="input100" type="password" name="confirm-password" placeholder="Nhập lại mật khẩu">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -73,22 +77,19 @@
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Register
+                            Đăng ký
                         </button>
                     </div>
 
                     <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
                         <a class="txt2" href="<?= url('forgot') ?>">
-                            Username / Password?
+                            Quên mật khẩu ?
                         </a>
                     </div>
 
                     <div class="text-center p-t-136">
                         <a class="txt2" href="<?= url('login') ?>">
-                            Login your Account
+                            Đăng nhập
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -96,8 +97,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="<?= asset('public/auth/vendor/jquery/jquery-3.2.1.min.js') ?>"></script>
     <script src="<?= asset('public/auth/vendor/bootstrap/js/popper.js') ?>"></script>

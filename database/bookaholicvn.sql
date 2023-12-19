@@ -40,7 +40,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `image`, `url`, `created_at`, `updated_at`) VALUES
-(8, 'public/banner-image/2022-10-24-23-19-09.jpeg', 'http://localhost/OnlineNewsSite/', '2022-10-24 14:19:09', NULL);
+(8, 'public/banner-image/2022-10-24-23-19-09.jpeg', 'http://localhost/bookaholicvn/', '2022-10-24 14:19:09', NULL);
 
 -- --------------------------------------------------------
 

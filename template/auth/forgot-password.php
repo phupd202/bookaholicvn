@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Forgot</title>
+    <title>Quên mật khẩu</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<?= asset('public/auth/vendor/bootstrap/css/bootstrap.min.css') ?>">
     <!--===============================================================================================-->
@@ -32,7 +32,7 @@
 
                 <form method="post" action="<?= url('forgot/request') ?>" class="login100-form validate-form">
                     <span class="login100-form-title">
-                        Forgot Password
+                        Quên mật khẩu
                     </span>
 
                     <?php 
@@ -54,7 +54,7 @@
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Send
+                            Gửi liên kết
                         </button>
                     </div>
 
@@ -62,7 +62,7 @@
 
                     <div class="text-center p-t-136">
                         <a class="txt2" href="<?= url('register') ?>">
-                            Create your Account
+                            Đăng ký ngay !
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>

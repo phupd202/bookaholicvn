@@ -4,8 +4,6 @@ namespace Admin;
 
 use Auth\Auth;
 
-
-
 class Admin{
 
         function __construct(){
@@ -14,7 +12,6 @@ class Admin{
                 $this->currentDomain = CURRENT_DOMAIN;
                 $this->basePath = BASE_PATH;
         }
-
 
         public function redirect($url){
 

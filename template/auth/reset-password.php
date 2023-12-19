@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Reset Password</title>
+    <title>Quên mật khẩu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?= asset('public/auth/vendor/bootstrap/css/bootstrap.min.css') ?>">
@@ -31,7 +31,7 @@
 
                 <form method="post" action="<?= url('reset-password/' . $forgot_token) ?>" class="login100-form validate-form">
                     <span class="login100-form-title">
-                        Reset Password
+                        Quên mật khẩu
                     </span>
 
                     <?php 
@@ -42,9 +42,18 @@
                     <?php
                     } ?>
 
+                    <!-- Nhập mật khẩu -->
+                    <div class="wrap-input100 validate-input" data-validate="Nhập mật khẩu mới">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu mới">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="password" placeholder="Password">
+                    <!-- Xác nhận mật khẩu -->
+                    <div class="wrap-input100 validate-input" data-validate="Mật khẩu phải trùng nhau">
+                        <input class="input100" type="password" name="confirm-password" placeholder="Nhập lại mật khẩu">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -53,22 +62,19 @@
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Send
+                            Thay đổi mật khẩu
                         </button>
                     </div>
 
                     <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
                         <a class="txt2" href="<?= url('forgot') ?>">
-                            Username / Password?
+                            Quên mật khẩu?
                         </a>
                     </div>
 
                     <div class="text-center p-t-136">
                         <a class="txt2" href="<?= url('login') ?>">
-                            Login your Account
+                            Đăng nhập
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -76,9 +82,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <script src="<?= asset('public/auth/vendor/jquery/jquery-3.2.1.min.js') ?>"></script>
     <script src="<?= asset('public/auth/vendor/bootstrap/js/popper.js') ?>"></script>
