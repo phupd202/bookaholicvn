@@ -135,16 +135,17 @@ iframe {
 [ Utility ]*/
 .txt1 {
   font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 20px;
+  line-height: 2;
   color: #999999;
 }
 
 .txt2 {
   font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #666666;
+  font-size: 20px;
+  line-height: 2;
+  color: #3e4684;
+  font-weight: bold;
 }
 
 
@@ -167,12 +168,12 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  padding: 20px;
+  background: #dde5f4;
+  background: -webkit-inear-gradient(-135deg, #FBEFEF, #dde5f4);
+  background: -o-inear-gradient(-135deg, #FBEFEF, #dde5f4);
+  background: -moz-inear-gradient(-135deg, #FBEFEF, #dde5f4);
+  background: linear-gradient(-135deg, #FBEFEF, #dde5f4)
 }
 
 .wrap-login100 {
@@ -180,15 +181,17 @@ iframe {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
+  margin: auto; 
 
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+
+  flex-direction: column; 
+  align-items: center; 
+  padding: 100px 90px 33px 80px;
 }
 
 /*------------------------------------------------------------------
@@ -205,19 +208,29 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .login100-form {
-  width: 290px;
+  width: 50%;
+  max-width: 50%;
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
-  font-size: 24px;
+  font-family: 'Montserrat-Bold';;
+  font-size: 30px;
   color: #333333;
   line-height: 1.2;
   text-align: center;
-
   width: 100%;
   display: block;
-  padding-bottom: 54px;
+  padding-bottom: 30px;
+}
+
+.login100-form-register {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  color: #333333;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 20px;
 }
 
 
@@ -231,7 +244,7 @@ iframe {
 
 .input100 {
   font-family: Poppins-Medium;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.5;
   color: #666666;
 
@@ -279,7 +292,7 @@ iframe {
 }
 
 .symbol-input100 {
-  font-size: 15px;
+  font-size: 20px;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -332,7 +345,7 @@ iframe {
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
+  background: #3e4684;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -392,7 +405,6 @@ iframe {
     padding: 100px 15px 33px 15px;
   }
 }
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
